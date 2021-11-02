@@ -33,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
     void playerMove() 
     {
-        if (control_number == 1)//Joystick
+        if (control_number == 1)//Joystick (Key - J) //DEFAULT
             playerMoveJoyStick();
-        else if (control_number == 2)//Mouse Follow
+        else if (control_number == 2)//Mouse Follow (Key - M)
             playerMoveMouseFollow();
-        else if (control_number == 3)//WASD controls
+        else if (control_number == 3)//WASD controls (Key - U)
             playerMoveKeys();
-        else if (control_number == 4)//OP controls
+        else if (control_number == 4)//OP controls (Key - P)
             platerMoveFreeMode();
         else
             playerMoveJoyStick();
