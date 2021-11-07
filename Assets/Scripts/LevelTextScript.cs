@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthScript : MonoBehaviour
+public class LevelTextScript : MonoBehaviour
 {
-    Text health;
-
+    Text level;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = GetComponent<Text>();
+        level = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        health.text = "Health: " + PlayerHealth.player_health;
+        level.text = "Level: " + GAMEFLOW.level;
     }
 }

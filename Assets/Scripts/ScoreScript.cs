@@ -22,6 +22,6 @@ public class ScoreScript : MonoBehaviour
 
         timer += Time.deltaTime;
         total = (int)timer + scoreValue;
-        score.text = "Poopy Text: " + total;
+        score.text = "Score: " + total;
     }
 }

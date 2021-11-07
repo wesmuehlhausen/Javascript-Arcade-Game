@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         spriteRenderer.sprite = spriteArray[0];
-        control_number = 1;
+        control_number = 4;
     }
 
     // Update is called once per frame
@@ -33,13 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
     void playerMove() 
     {
-        if (control_number == 1)//Joystick (Key - J) //DEFAULT
+        if (control_number == 1)//Joystick (Key - J) 
             playerMoveJoyStick();
         else if (control_number == 2)//Mouse Follow (Key - M)
             playerMoveMouseFollow();
         else if (control_number == 3)//WASD controls (Key - U)
             playerMoveKeys();
-        else if (control_number == 4)//OP controls (Key - P)
+        else if (control_number == 4)//OP controls (Key - P) //DEFAULT
             platerMoveFreeMode();
         else
             playerMoveJoyStick();

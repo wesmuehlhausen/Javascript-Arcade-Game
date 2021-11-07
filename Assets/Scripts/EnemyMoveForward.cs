@@ -7,7 +7,9 @@ public class EnemyMoveForward : MonoBehaviour
     public float topSpeed = 3f;
     public float movementSpeed = 0f;
     public float distance;
-    public float stopAt = 4;
+    public float stopAtMax = 5;
+    public float stopAtMin = 3;
+    float stopAt; 
     public float acceleration = 0.1f;
     Transform player;
     GameObject gameObj;
@@ -19,6 +21,7 @@ public class EnemyMoveForward : MonoBehaviour
     {
         spriteRenderer.sprite = spriteArray[0];
         gameObj = GameObject.Find("ship_normal");
+        stopAt = Random.Range(stopAtMin, stopAtMax);
     }
 
     void Update()
