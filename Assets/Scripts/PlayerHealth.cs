@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public static int player_health = 10;
+    public int viewHealth = player_health = 69;
     public GameObject explosionPrefab;
 
     //On ship collision/trigger

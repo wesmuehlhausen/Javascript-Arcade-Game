@@ -13,12 +13,12 @@ public class DamagedByShip : MonoBehaviour
     //On ship collision/trigger
     void OnTriggerEnter2D() 
     {
-        Debug.Log("Trigger!");//log collision in command line
-        Debug.Log("Collision: " + PlayerHealth.player_health);
+        //Debug.Log("Trigger!");//log collision in command line
+        //Debug.Log("Collision: " + PlayerHealth.player_health);
         ship_health--;//decrease health
-        Debug.Log("Collision: " + PlayerHealth.player_health);
-        PlayerHealth.player_health -= damagePlayerBy;
-        Debug.Log("Collision: " + PlayerHealth.player_health);
+        //Debug.Log("Collision: " + PlayerHealth.player_health);
+        //PlayerHealth.player_health -= damagePlayerBy;
+        //Debug.Log("Collision: " + PlayerHealth.player_health);
 
     }
 
