@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class DamagedByShip : MonoBehaviour
 {
-    public int ship_health = 1;
-    public int damagePlayerBy = 1;
+    public int health = 1;
+    //public int damageGiven = 0;
     public int pointsOnDeath = 0;
-    public GameObject explosionPrefab;
+    public GameObject explosionPrefab;//Explosion of this ship
     public bool isShip = false;
 
     //On ship collision/trigger
-    void OnTriggerEnter2D() 
+    void OnTriggerEnter2D(Collider2D col) 
     {
-        //Debug.Log("Trigger!");//log collision in command line
-        //Debug.Log("Collision: " + PlayerHealth.player_health);
-        ship_health--;//decrease health
-        //Debug.Log("Collision: " + PlayerHealth.player_health);
-        //PlayerHealth.player_health -= damagePlayerBy;
-        //Debug.Log("Collision: " + PlayerHealth.player_health);
-
+        if(isShip == false){//If this is a bullet
+            health = 0;
+        }
+        else{//If this is a ship
+                if(col.gameObject.name == "bullet_pink" || col.gameObject.name == "bullet_pink(Clone)"){
+                    health -= 1;
+                }
+                else if(gameObject.name == "enemyChaser" || gameObject.name == "enemyChaser(Clone)"){
+                    if(col.gameObject.name == "ship_normal"){
+                        health = 0;//Explode
+                    }
+                }
+                else{
+                    Debug.Log("Other collision");
+                }
+        }
     }
 
     void Update() 
     {
-        if (ship_health <= 0)
+        if (health <= 0)
         {
             Die();
         }

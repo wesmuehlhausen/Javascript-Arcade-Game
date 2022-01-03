@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49af96719349d7042aa45c3d7da63a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facePlayer: 1
+  rotationSpeed: 90
   activeScript: 1
 --- !u!114 &6622377054415763069
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObj: {fileID: 561931625926486509, guid: 9308bedeaabf8c14eaf30e54e2e9a059, type: 3}
   bulletPrefab: {fileID: 1035624199167252714, guid: 83d9564ca2754c947a9f3e44213cd7a9, type: 3}
-  distance: 0
+  maxGunRange: 10
   coolDown: 300
 --- !u!114 &2743133271221471320
 MonoBehaviour:
@@ -186,6 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  pointsOnDeath: 50
+  explosionPrefab: {fileID: 855621732013169709, guid: 58ae8fa59d231a14396e6e1371247356, type: 3}
+  isShip: 1
 --- !u!114 &-3148697687982766300
 MonoBehaviour:
   m_ObjectHideFlags: 0

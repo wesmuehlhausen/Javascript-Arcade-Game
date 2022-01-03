@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 300169371}
   - component: {fileID: 300169369}
   - component: {fileID: 300169370}
-  - component: {fileID: 300169375}
+  - component: {fileID: -8829647300168805564}
+  - component: {fileID: -3627548679499311224}
+  - component: {fileID: -3575801411942021770}
   m_Layer: 7
   m_Name: enemyVulcan
   m_TagString: Untagged
@@ -159,7 +161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255781266463775757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49af96719349d7042aa45c3d7da63a78, type: 3}
   m_Name: 
@@ -179,7 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
---- !u!114 &300169375
+  pointsOnDeath: 0
+  explosionPrefab: {fileID: 0}
+  isShip: 1
+--- !u!114 &-8829647300168805564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,10 +193,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1255781266463775757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6a32a9eebb2f74f9a5ad83dbf73418, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f8ef68d5c98d43449276f059029697f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 90
+  locked: 0
+--- !u!114 &-3627548679499311224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255781266463775757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732fe866376b71d4c88835dbb1422297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameObj: {fileID: 0}
   bulletPrefab: {fileID: 0}
-  maxGunRange: 25
-  coolDown: 100
+  maxGunRange: 10
+  coolDown: 250
+--- !u!114 &-3575801411942021770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255781266463775757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d1ed52cc1d5ca48bc822fe8eb69945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topSpeed: 3
+  movementSpeed: 0
+  distance: 0
+  stopAtMax: 5
+  stopAtMin: 3
+  acceleration: 0.1
+  spriteArray: []
+  spriteRenderer: {fileID: 0}
