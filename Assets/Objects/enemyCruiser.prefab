@@ -149,6 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  pointsOnDeath: 25
+  explosionPrefab: {fileID: 253863290259912094, guid: f566c23af650601409d7b58147dc5ac5, type: 3}
+  isShip: 1
 --- !u!60 &1735894040
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -197,6 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49af96719349d7042aa45c3d7da63a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 90
+  activeScript: 1
 --- !u!114 &1735894038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,9 +214,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36dd249f95f33640be891f2316b8de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topSpeed: 3
   movementSpeed: 3
   distance: 0
-  stopAt: 4
+  stopAtMax: 5
+  stopAtMin: 3
+  acceleration: 0.1
   spriteArray:
   - {fileID: 21300000, guid: 9e86fe45eb7ad0549911b5b554f4c78b, type: 3}
   - {fileID: 21300000, guid: 77249fac4af37b04e982869a531cdf25, type: 3}
@@ -230,5 +238,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObj: {fileID: 561931625926486509, guid: 9308bedeaabf8c14eaf30e54e2e9a059, type: 3}
   bulletPrefab: {fileID: 480539249757037022, guid: 6cc3fd83c589fd34292f889d8a8bbd9f, type: 3}
-  distance: 0
+  maxGunRange: 10
   coolDown: 250

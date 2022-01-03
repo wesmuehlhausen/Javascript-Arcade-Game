@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49af96719349d7042aa45c3d7da63a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 80
+  activeScript: 1
 --- !u!114 &1487748533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5d50f92a65ec045b99e378df3b5bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
+  pointsOnDeath: 15
+  explosionPrefab: {fileID: 504502099606890561, guid: 24cf681515a042b44a87dfc3fe93d090, type: 3}
+  isShip: 1
 --- !u!114 &1487748534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,5 +202,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0fad7b4f86dec449c73840cb73903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
+  movementSpeed: 6
   gameObj: {fileID: 561931625926486509, guid: 9308bedeaabf8c14eaf30e54e2e9a059, type: 3}

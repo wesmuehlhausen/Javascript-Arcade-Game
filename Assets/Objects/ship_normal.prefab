@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 561931625926486500}
   - component: {fileID: 1674986183}
   - component: {fileID: 1674986182}
-  - component: {fileID: 7881219165481073093}
+  - component: {fileID: 1062111262}
   m_Layer: 6
   m_Name: ship_normal
   m_TagString: Untagged
@@ -169,12 +169,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561931625926486509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a5d50f92a65ec045b99e378df3b5bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  ship_health: 1
+  damagePlayerBy: 1
+  pointsOnDeath: 0
+  explosionPrefab: {fileID: 0}
+  isShip: 0
 --- !u!114 &561931625926486500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,9 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 6891436185646317953, guid: 58c19b7beea290e4c87423bc59c04cb5, type: 3}
-  fireRate: 6
+  fireRate: 5
   bulletOffset: {x: 0, y: 0, z: 0}
---- !u!114 &7881219165481073093
+--- !u!114 &1062111262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,7 +257,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 561931625926486509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d9cc379f0ebde4d9c4abe5919ddbcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 144d3c0dbadfa814296c529ab47b27f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 0}
+  explosionPrefab: {fileID: 0}
