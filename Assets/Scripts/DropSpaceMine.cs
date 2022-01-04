@@ -20,7 +20,6 @@ public class DropSpaceMine : MonoBehaviour
         {
             //Shoot the bullet, then reset bullet timer
             coolDownTimer = fireRate;//Set back to 0.25
-
             Vector3 offset = transform.rotation * bulletOffset;
 
             Instantiate(bombPrefab, transform.position + offset, transform.rotation);

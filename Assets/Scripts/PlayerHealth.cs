@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public static int player_health = 25;
-    public int viewHealth = player_health;
     public GameObject explosionPrefab;
 
     //On ship collision/trigger
@@ -24,13 +23,20 @@ public class PlayerHealth : MonoBehaviour
         else if(col.gameObject.name == "enemyChaser" || col.gameObject.name == "enemyChaser(Clone)"){//Enemy Chaser
             player_health -= 8;
         }
-        
+        else if(col.gameObject.name == "vulcanBeam" || col.gameObject.name == "vulcanBeam(Clone)"){//Enemy Chaser
+            player_health -= 12;
+        }        
+        else{
+            Debug.Log("Other Collision with player");//log collision in command line
+        }
 
+        if(player_health < 0){
+            player_health = 0;
+        }
     }
 
     void Update()
     {
-        viewHealth = player_health;
         if (player_health <= 0)
         {
             Die();

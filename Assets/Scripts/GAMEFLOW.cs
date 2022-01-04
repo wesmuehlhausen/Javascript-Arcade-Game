@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GAMEFLOW : MonoBehaviour
 {
     public static int level = 0;
+    public static string centerText;
     public static int enemiesAlive = 0;
     public static float[] depths = {-49.4f};
     bool spawned = false;
@@ -17,14 +19,20 @@ public class GAMEFLOW : MonoBehaviour
     void Start()
     {
         level = 99;//TODO change back to level 1
+        centerText = "";
         player = GameObject.Find("ship_normal");
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Tutorial
+        if(level == 0){
+
+        }
+
         //Level 1 - (4 enemy cruisers)
-        if(level == 1)
+        else if(level == 1)
         {
             //If there are no enemeies are spawned yet, spawn them. 
             if (spawned == false) {
@@ -61,6 +69,16 @@ public class GAMEFLOW : MonoBehaviour
                 spawned = false;
             }
         }
+
+        //Level 3: 5 chasers 
+        //Level 4: 3 chasers and 5 cruisers
+        //Level 5: 3 probes 
+        //Level 6: 3 chasers, 3 probes, 3 cruisers
+        //Level 7: 1 Vulcan
+        //Level 8: 2 Vulcans, 2 chasers, 5 cruisers
+        //Level 9: 5 Vulcans
+        //Level 10: 1 Mothership
+        //UFO's later
     }
 
     void spawnShip(GameObject prefab, float xCor, float yCor, float zCor) {

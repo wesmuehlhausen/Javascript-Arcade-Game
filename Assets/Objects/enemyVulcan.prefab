@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   pointsOnDeath: 0
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 5991615032276309707, guid: 055819b8712f50d49a625ca9bb64bf7d, type: 3}
   isShip: 1
 --- !u!114 &-8829647300168805564
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8ef68d5c98d43449276f059029697f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 90
+  rotationSpeed: 70
   locked: 0
 --- !u!114 &-3627548679499311224
 MonoBehaviour:
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObj: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  maxGunRange: 10
+  bulletPrefab: {fileID: 8770079819818138069, guid: a4f12e61a7882314f84711c065e86d4c, type: 3}
+  maxGunRange: 15
   coolDown: 250
 --- !u!114 &-3575801411942021770
 MonoBehaviour:
@@ -232,5 +232,4 @@ MonoBehaviour:
   stopAtMax: 5
   stopAtMin: 3
   acceleration: 0.1
-  spriteArray: []
   spriteRenderer: {fileID: 0}
