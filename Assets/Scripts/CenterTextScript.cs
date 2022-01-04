@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class CenterTextScript : MonoBehaviour
 {
-    Text text;
+    Text textCenter;
 
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<Text>();
+        textCenter = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = GAMEFLOW.centerText;
+        textCenter.text = GAMEFLOW.centerText;
     }
 }

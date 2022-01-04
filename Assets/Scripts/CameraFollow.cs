@@ -27,6 +27,9 @@ public class CameraFollow : MonoBehaviour
             targPos.z = transform.position.z;
             transform.position = targPos;
         }
+        else{
+            Debug.Log("Error with Camera");
+        }
     }
 }
 

@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  pointsOnDeath: 0
+  pointsOnDeath: 100
   explosionPrefab: {fileID: 5991615032276309707, guid: 055819b8712f50d49a625ca9bb64bf7d, type: 3}
   isShip: 1
 --- !u!114 &-8829647300168805564
