@@ -8,12 +8,18 @@ public class GAMEFLOW : MonoBehaviour
     public static int level = 0;
     public static int step = 0;
     public static string centerText;
+    public static string textSub;
     public static int enemiesAlive = 0;
     public static float[] depths = {-49.4f};
     public static bool[] wasdCheck = {false, false, false, false};
     public static bool spawnedDummies;
+    public static bool tmp;
     bool spawned = false;
     public static float timer = 0;
+    public static float alpha = 1f;
+    private float direction = 1f;
+    
+
     Vector3 position;
 
     public GameObject player;
@@ -26,16 +32,18 @@ public class GAMEFLOW : MonoBehaviour
     {
         level = 0;//TODO change back to level 1
         centerText = "";
+        textSub = "";
         player = GameObject.Find("ship_normal");
         spawnedDummies = false;
         timer = 0;
+        tmp = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(timer.ToString());
+        //Debug.Log(timer.ToString());
         if(timer > 10000)
             timer = 1000;
 
@@ -54,15 +62,29 @@ public class GAMEFLOW : MonoBehaviour
 
             //Step 0: Title screen
             if(step == 0){
-                int intVersion = 10 - (int)timer;
-                if(intVersion <= 0) 
-                    step = 1;
-                centerText = "Deeep Space starting in... " + intVersion;
+                centerText = "Deeep Space";
+                if(tmp == false){
+                    if((int)timer % 2 == 0)//every 2 seconds
+                        textSub = "CLICK ANYWHERE TO START";
+                    else
+                        textSub = "";
+                    if(Input.GetMouseButtonDown(0)){
+                        tmp = true;
+                        timer = 0;
+                    }
+                }
+                else{
+                    int intVersion = 5 - (int)timer;
+                    if(intVersion <= 0) 
+                        step = 1;
+                    textSub = "BLAST OF IN " + intVersion;
+                }
             }
 
             //step 1: test out WASD
             else if(step == 1){
-                centerText = "Controls: Press WASD keys to fly around (1/4)";
+                centerText = "Controls: Movement (1/4)";
+                textSub = "PRESS [WASD] KEYS TO FLY AROUND";
                 if((wasdCheck[0] && wasdCheck[1]) && (wasdCheck[2] && wasdCheck[3])){//if they have pressed WASD
                     step = 2;
                 }
@@ -77,9 +99,10 @@ public class GAMEFLOW : MonoBehaviour
             
             }
             else if(step == 2){
-                centerText = "Nice! Now hold SHIFT while moving to BOOST (2/4)";
-                if(Input.GetKey(KeyCode.LeftShift)){
-                    if(Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
+                centerText = "Controls: Booster";
+                textSub = "NOW HOLD [SHIFT] WHILE MOVING TO BOOST";
+                if(Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d")){
+                    if(Input.GetKey(KeyCode.LeftShift))
                         step = 3;
                 }
             }
