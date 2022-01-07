@@ -65,7 +65,7 @@ public class GAMEFLOW : MonoBehaviour
                 centerText = "Deeep Space";
                 if(tmp == false){
                     if((int)timer % 2 == 0)//every 2 seconds
-                        textSub = "CLICK ANYWHERE TO START";
+                        textSub = "Click anywhere to start";
                     else
                         textSub = "";
                     if(Input.GetMouseButtonDown(0)){
@@ -84,9 +84,10 @@ public class GAMEFLOW : MonoBehaviour
             //step 1: test out WASD
             else if(step == 1){
                 centerText = "Controls: Movement (1/4)";
-                textSub = "PRESS [WASD] KEYS TO FLY AROUND";
+                textSub = "Press [WASD] keys to fly around";
                 if((wasdCheck[0] && wasdCheck[1]) && (wasdCheck[2] && wasdCheck[3])){//if they have pressed WASD
                     step = 2;
+                    timer = 0;
                 }
                 if(Input.GetKeyDown("w"))
                     wasdCheck[0] = true;
@@ -99,10 +100,9 @@ public class GAMEFLOW : MonoBehaviour
             
             }
             else if(step == 2){
-                centerText = "Controls: Booster";
-                textSub = "NOW HOLD [SHIFT] WHILE MOVING TO BOOST";
-                if(Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d")){
-                    if(Input.GetKey(KeyCode.LeftShift))
+                centerText = "Controls: Booster (2/4)";
+                textSub = "Now, hold [SHIFT] while moving to boost";
+                if(timer > 5){
                         step = 3;
                 }
             }
