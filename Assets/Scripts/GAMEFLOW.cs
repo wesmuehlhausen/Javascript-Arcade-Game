@@ -99,15 +99,20 @@ public class GAMEFLOW : MonoBehaviour
                     wasdCheck[3] = true;
             
             }
+
+            //Step 2: Boost
             else if(step == 2){
                 centerText = "Controls: Booster (2/4)";
-                textSub = "Now, hold [SHIFT] while moving to boost";
+                textSub = "Now, hold [SHIFT] while moving with [WASD] to boost";
                 if(timer > 5){
                         step = 3;
                 }
             }
+
+            //Step 3: Shooting
             else if(step == 3){
-                centerText = "Use the MOUSE to aim and press SPACE to fire at enemies (3/4)";
+                centerText = "Controls: Shooting (3/4)";
+                textSub = "Use the [MOUSE] to aim and press [SPACE] to fire at enemies";
                 if(spawnedDummies == false){
                     spawnPlayerAtOrigin();//Spawn Ship at 0,0
                     spawnShip(dummyCruiser, 4f, 3f, depths[0]);
@@ -121,8 +126,13 @@ public class GAMEFLOW : MonoBehaviour
                     spawnedDummies = false;
                 }
             }
+
+            //Step 4: Drop a mine
             else if(step == 4){
-                centerText = "Finally, Press E to drop a mine (4/4)";
+                Debug.Log(timer);
+                Debug.Log(wasdCheck[0]);
+                centerText = "Controls: Mine (4/4)";
+                textSub = "Press [E] to drop a mine";
                 if(spawnedDummies == false){
                     spawnPlayerAtOrigin();//Spawn Ship at 0,0
                     spawnShip(dummyCruiser, 2f, 0f, depths[0]);          
@@ -133,8 +143,24 @@ public class GAMEFLOW : MonoBehaviour
                 else if(Input.GetKeyDown("e")){
                     wasdCheck[0] = true;
                 }
-                if(timer > 5 && wasdCheck[0] == true)
+                if(timer > 5 && wasdCheck[0] == true){
                     step = 5;
+                    timer = 0;
+                }
+                    
+            }
+
+            //Step 5: Countdown to the game
+            else if(step == 5){
+                if(timer < 10){
+                    centerText = (10 - (int)timer) + "";
+                    textSub = "First wave of enemies spawning in: ";
+                }
+                else{
+                    spawnPlayerAtOrigin();
+                    step = 6;
+                    level = 1;
+                }
             }
             
 
@@ -180,6 +206,7 @@ public class GAMEFLOW : MonoBehaviour
             }
         }
 
+        //TODO: Add spaces between rounds
         //Level 3: 5 chasers 
         //Level 4: 3 chasers and 5 cruisers
         //Level 5: 3 probes 
