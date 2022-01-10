@@ -16,6 +16,6 @@ public class CenterTextScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textCenter.text = GAMEFLOW.centerText;
+        textCenter.text = GAMEFLOW.centerText;//
     }
 }
