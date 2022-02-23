@@ -18,6 +18,7 @@ public class GAMEFLOW : MonoBehaviour
     public static float timer = 0;
     public static float alpha = 1f;
     private float direction = 1f;
+
     
 
     Vector3 position;
@@ -42,12 +43,16 @@ public class GAMEFLOW : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(player == null){
+            centerText = "Game Over";
+        }
+
+
         timer += Time.deltaTime;
         //Debug.Log(timer.ToString());
         if(timer > 10000)
             timer = 1000;
-
-
 
         //Put Ship back at 0,0 if out of bounds
         //if x < -85, x > 85, y < -85, y > 85
@@ -59,13 +64,18 @@ public class GAMEFLOW : MonoBehaviour
         if(level == 0){
 
             //To skip, press V
+            if(Input.GetKeyDown("v") || Input.GetKeyDown("v")){
+                step = 5;
+                timer = 0;
+            }
 
             //Step 0: Title screen
             if(step == 0){
-                centerText = "Deeep Space";
+                centerText = "Deeep Space (Beta)";
+
                 if(tmp == false){
                     if((int)timer % 2 == 0)//every 2 seconds
-                        textSub = "Click anywhere to start";
+                        textSub = "Click anywhere to start (Press V to skip tutorial)";
                     else
                         textSub = "";
                     if(Input.GetMouseButtonDown(0)){
@@ -157,9 +167,12 @@ public class GAMEFLOW : MonoBehaviour
                     textSub = "First wave of enemies spawning in: ";
                 }
                 else{
+                    centerText = "";
+                    textSub = "";
                     spawnPlayerAtOrigin();
                     step = 6;
                     level = 1;
+                    timer = 0;
                 }
             }
             
@@ -169,8 +182,16 @@ public class GAMEFLOW : MonoBehaviour
         //Level 1 - (4 enemy cruisers)
         else if(level == 1)
         {
+            if( timer < 2){
+                    centerText = "Level 1";
+                    textSub = "";
+            }
+            else{
+                centerText = "";
+            }
+
             //If there are no enemeies are spawned yet, spawn them. 
-            if (spawned == false) {
+            if (spawned == false && timer > 3) {
                 //Create the ships for the first level add to number of ships
                 enemiesAlive = 0;
                 spawnShip(cruiserPrefab, 10f, 10f, depths[0]);
@@ -184,18 +205,32 @@ public class GAMEFLOW : MonoBehaviour
             if (spawned == true && enemiesAlive == 0) {
                 level = 2;
                 spawned = false;
+                timer = 0;
             }
         }
 
         //Level 2
         else if (level == 2) {
+
+            //Create Text fo level
+            if( timer < 2){
+                    centerText = "Level 2";
+                    textSub = "";
+            }            
+            else{
+                centerText = "";
+            }
+
             //If there are no enemeies are spawned yet, spawn them. 
             if (spawned == false)
             {
+                if(timer > 3){
+                    for (int i = 0; i < 10; ++i)
+                        spawnShipRandomLocation(cruiserPrefab, -50f, 50f, -50f, 50f, depths[0]);
+                    spawned = true;                    
+                }
                 //Create the ships for the first level add to number of ships
-                for (int i = 0; i < 10; ++i)
-                    spawnShipRandomLocation(cruiserPrefab, -50f, 50f, -50f, 50f, depths[0]);
-                spawned = true;
+
             }
 
             //If there are no enemies left, round over, change round number
@@ -203,6 +238,8 @@ public class GAMEFLOW : MonoBehaviour
             {
                 level = 3;
                 spawned = false;
+                timer = 0;
+                centerText = "";
             }
         }
 
